@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: Googlebot
+Allow: /booking-detail
+Allow: /trip-detail
+Allow: /search
+Allow: /contactus
+Allow: /about
+Allow: /cotravel/search
+Allow: /$
+Disallow: /

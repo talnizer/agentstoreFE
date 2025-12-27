@@ -1,0 +1,115 @@
+.common .btn-light {
+  /* --bs-btn-color: #000; */
+  --bs-btn-bg: #f0f0f0;
+  /* --bs-btn-hover-color: #23ef1d; */
+  --bs-btn-hover-color: rgb(102, 202, 1);
+
+  --bs-btn-hover-bg: #fff;
+}
+
+.app-bg-color {
+  /* background: rgb(255 202 72) !important */
+  /* background: rgb(124, 252, 0, 1) !important */
+  background: rgb(102, 202, 1) !important
+}
+
+.btn.app-bg-color:hover {
+  /* background: rgb(255 202 72) !important */
+  border-color: rgb(102, 202, 1) !important;
+  background: rgb(213 251 175) !important
+}
+
+.animate-fadein {
+  animation-duration: 2s;
+  animation-name: fadein;
+  animation-timing-function: ease-in;
+
+}
+
+/* .app-hover-bg-color {
+
+} */
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.app-selected-bg-color {
+  background: aliceblue !important
+}
+
+.app-vegetarian {
+  border-color: green !important;
+  padding: .15rem !important;
+  color: green;
+  border-width: thick;
+}
+
+.app-non-vegetarian {
+  border-color: indianred !important;
+  padding: .20rem !important;
+  color: indianred !important;
+  border-width: medium;
+}
+
+.app-border-color {
+  /* background: rgb(255 202 72) !important */
+  /* background: rgb(124, 252, 0, 1) !important */
+  border-color: rgb(102, 202, 1) !important
+    /* linear-gradient(
+    to right,
+    rgb(124, 252, 0, 1),
+    rgb(255, 255, 0, 1)
+  ) !important; */
+}
+
+.app-border-color.btn:hover {
+  background: rgb(102, 202, 1) !important
+}
+
+.app-text-color {
+  /* background: rgb(255 202 72) !important */
+  /* color: rgb(124, 252, 0, 1) !important */
+  color: rgb(102, 202, 1) !important
+    /* linear-gradient(
+    to right,
+    rgb(124, 252, 0, 1),
+    rgb(255, 255, 0, 1)
+  ) !important; */
+}
+
+/* .btn-app-color {
+
+} */
+
+.track-line {
+  height: 2px !important;
+  background-color: rgb(102, 202, 1) !important;
+  opacity: 1;
+  color: rgb(102, 202, 1) !important;
+}
+
+.track-arrow {
+  height: 50px !important;
+  color: rgb(102, 202, 1) !important;
+  opacity: 1;
+}
+
+.webkit-gradient {
+  /* fallback for old browsers */
+  background: lawngreen;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right,
+      rgb(124, 252, 0, 0.7),
+      rgb(255, 255, 0, 0.7));
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right,
+      rgb(124, 252, 0, 0.7),
+      rgb(255, 255, 0, 0.7));
+}
