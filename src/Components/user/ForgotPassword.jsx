@@ -49,7 +49,7 @@ export default function ForgotPassword() {
 
   const submit = event => {
     var input = {
-      email: email,
+      email: email ? email : user.email,
       otp: otp,
       password: password,
       c_password: confirmPassword,

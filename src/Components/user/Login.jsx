@@ -7,18 +7,28 @@ import { toast } from 'react-toastify';
 import AuthUser from '../Common/AuthUser';
 import PathConstants from '../../routes/PathConstants';
 import Form from "react-bootstrap/Form";
+import { useEffect } from "react";
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
     const [loginLoading, setLoginLoading] = useState(false);
-    const { setToken } = AuthUser();
+    const { setToken, getToken } = AuthUser();
     const { state: locationState } = useLocation();
     const { redirectTo } = locationState ? locationState : [];
     const navigate = useNavigate();
     const [password, setPassword] = useState('');
     const [validated, setValidated] = useState(false);
     const aiToolsService = useService(AIToolsService);
+    useEffect(() => {
+        setLoginLoading(false)
+        //redirect to dashboard if /login is hit but user is already logged in
+        if (getToken()) {
+            // console.log(redirectTo);
+            navigate(PathConstants.HOME, { replace: true });
+            return;
+        }
+    });
     const submit = event => {
         setLoading(true);
         const form = event.currentTarget;
