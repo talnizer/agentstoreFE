@@ -1,6 +1,6 @@
 const AppConfig = {
-  APP_NAME: "Tasker",
-  APP_HOST_NAME: 'tasker.hamrahi.in'
+  APP_NAME: "Sadhak",
+  APP_HOST_NAME: 'sadhak.hamrahi.in'
 };
 
 export default AppConfig;
