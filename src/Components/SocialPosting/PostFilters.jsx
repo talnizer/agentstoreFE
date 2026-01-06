@@ -93,7 +93,7 @@ export default function PostFilters(props) {
                                         >
                                             <option disabled value="">Select Topic</option>
                                             {Topics.map((item, index) => {
-                                                let disabled = false; //!user && index > 0;
+                                                let disabled = !user && index > 0;
                                                 return (
                                                     <option disabled={disabled} key={index} value={item.name}>{item.name}</option>
                                                 );
@@ -329,7 +329,7 @@ export default function PostFilters(props) {
                                     )}
                                 </Button>
                             </div>
-
+                            <div className='text-left mb-4'><small className='text-danger'>*Some Fields are disabled. Login to enable them.</small></div>
                         </Col>
                     </Row>
                 </Form>

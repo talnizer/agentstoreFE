@@ -127,7 +127,7 @@ export default function ListPosts(props) {
                                             </div>
                                             <div className='col'>
                                                 <div className='d-flex justify-content-between'>
-                                                    <small>Platform <span className='text-left mb-3 text-primary text-capitalize'>{draft.query?.platform}</span></small>
+                                                    <small>Platform <span className='text-left mb-3 text-primary text-capitalize'>{draft.query.platform ? draft.query.platform : 'Generic'}</span></small>
                                                     <div className='text-right mb-3'>{new Date(draft.created_at).toLocaleString()}</div>
                                                 </div>
                                                 <pre style={{ whiteSpace: 'pre-wrap' }}>{draft.content}</pre>
