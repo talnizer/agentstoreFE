@@ -20,7 +20,7 @@ import Terms from "../pages/Terms";
 import Privacy from "../pages/Privacy";
 import Register from "../Components/SocialPosting/Register";
 import Login from "../Components/user/Login";
-import SocialConnect from "../Components/SocialPosting/SocialConnect";
+import SocialConnect from "../Components/SocialPosting/SocialShare";
 import Home from "../Components/SocialPosting/Home";
 
 // const Home = React.lazy(() => import("../pages/Home"));

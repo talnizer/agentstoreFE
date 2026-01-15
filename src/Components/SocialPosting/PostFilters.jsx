@@ -92,13 +92,6 @@ export default function PostFilters(props) {
                                             required
                                         >
                                             <option disabled value="">Select Topic</option>
-                                            {Topics.map((item, index) => {
-                                                let disabled = !user && index > 0;
-                                                return (
-                                                    <option disabled={disabled} key={index} value={item.name}>{item.name}</option>
-                                                );
-                                            })
-                                            }
                                             {user &&
                                                 <option value="custom_option">
                                                     -- Custom --
@@ -109,6 +102,14 @@ export default function PostFilters(props) {
                                                     -- Custom (Login Required) --
                                                 </option>
                                             }
+                                            {Topics.map((item, index) => {
+                                                let disabled = !user && index > 0;
+                                                return (
+                                                    <option disabled={disabled} key={index} value={item.name}>{item.name}</option>
+                                                );
+                                            })
+                                            }
+
                                         </Form.Select>
                                     </Form.Group>
                                 </Col>
@@ -224,18 +225,19 @@ export default function PostFilters(props) {
                                         // required
                                         >
                                             <option disabled value="">Select Audience</option>
+                                            {user &&
+                                                <option value="custom_option">-- Custom --</option>
+                                            }
+                                            {!user &&
+                                                <option disabled value="custom_option">-- Custom (Login Required)--</option>
+                                            }
                                             {Audiences.map((item, index) => {
                                                 let disabled = !user && index > 0;
                                                 return (
                                                     <option disabled={disabled} key={index} value={item.name}>{item.name}</option>
                                                 )
                                             })}
-                                            {user &&
-                                                <option value="custom_option">-- Custom --</option>
-                                            }
-                                            {!user &&
-                                                <option disabled value="custom_option">-- Custom (Login Required)--</option>
-                                            }                                       </Form.Select>
+                                        </Form.Select>
                                         {/* </Form.Group> */}
 
                                         {/* Only show this input if "Other" is selected */}
@@ -329,7 +331,9 @@ export default function PostFilters(props) {
                                     )}
                                 </Button>
                             </div>
-                            <div className='text-left mb-4'><small className='text-danger'>*Some Fields are disabled. Login to enable them.</small></div>
+                            {!user &&
+                                <div className='text-left mb-4'><small className='text-danger'>*Some Fields are disabled. Login to enable them.</small></div>
+                            }
                         </Col>
                     </Row>
                 </Form>

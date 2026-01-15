@@ -6,7 +6,7 @@ import AuthUser from '../Common/AuthUser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCopy, faRightLeft } from '@fortawesome/free-solid-svg-icons';
 import Utils from '../../utils/Utils';
-import PostFilters from './PostFilters';
+import SocialShare from './SocialShare';
 
 export default function ListPosts(props) {
     const [drafts, setDrafts] = useState([]);
@@ -112,14 +112,14 @@ export default function ListPosts(props) {
                         <div className='card shadow m-3 p-2 bg-light'>
                             {drafts.map((draft, draftIndex) => (
                                 ////other heads
-                                <div className='bg-white rounded p-3 m-3' key={draftIndex}>
+                                <div className='bg-white rounded p-2 m-1' key={draftIndex}>
 
                                     {/* <ul >{draft.content && draft.content.map((post, postIndex) => ( */}
                                     {/* <ul> */}
                                     {/* {postIndex !== 0 && <hr />} */}
-                                    <li className='list-inline-item'>
+                                    <li className='container list-inline-item'>
                                         <div className='row'>
-                                            <div className='col-1 border-right'>
+                                            <div className='p-1 col-1 border-right'>
                                                 <div className='align-self-center h5'>
                                                     {draftIndex + 1}
                                                 </div>
@@ -133,19 +133,12 @@ export default function ListPosts(props) {
                                                 <pre style={{ whiteSpace: 'pre-wrap' }}>{draft.content}</pre>
                                                 {/* <div className='mx-3 text-right btn btn-outline-dark' onClick={() => post(draft.id, 'facebook')}>Post to Facebook</div>
                                                 <div className='mx-3 text-right btn btn-outline-dark' onClick={() => post(draft.id, 'linkedin')}>Post to LinkedIn</div> */}
+                                                <SocialShare content={draft.content} />
+
                                                 {user &&
-                                                    <div className='mx-3 text-right btn btn-outline-dark' onClick={() => deleteDraft(draft._id)}>Delete</div>
+                                                    <button className={`m-1 btn ${copied ? 'btn-success' : 'btn-outline-secondary'}`} onClick={() => deleteDraft(draft._id)}>Delete</button>
                                                 }
-                                                <div id={draftIndex} className='mx-3 text-right btn btn-outline-dark' onClick={(e) => copy(draftIndex, draft.content)}>Copy
-                                                    {draftIndex === copiedDraftIndex
-                                                        &&
-                                                        <FontAwesomeIcon size="xl" className={"px-1 text-success"} icon={faCheck} />
-                                                    }
-                                                    {/* {!(draftIndex === copiedDraftIndex && postIndex === copiedPostIndex)
-                                        &&
-                                        <FontAwesomeIcon size="xl" className={"px-1 text-dark"} icon={faCopy} />
-                                    } */}
-                                                </div></div>
+                                            </div>
                                         </div>
                                     </li>
                                     {/* </ul> */}

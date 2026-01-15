@@ -80,7 +80,7 @@ export default function EmailVerify(props) {
           } else {
             toast.dismiss();
             toast.success(response.message);
-            navigate(PathConstants.HOME);
+            navigate(PathConstants.LOGIN);
           }
         },
         error: err => {
