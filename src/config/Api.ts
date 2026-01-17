@@ -1,4 +1,4 @@
-import { defer, Observable } from "rxjs";
+import { from, defer, Observable } from "rxjs";
 import { axiosRequestConfiguration } from "./AxiosConfig";
 import { initialization as initializeAxios } from "./AxiosSetup";
 import { map } from "rxjs/operators";
@@ -57,4 +57,27 @@ const deleteR = <T>(url: string, id: string): Observable<T | void> => {
   );
 };
 
-export default { setAuthToken, get, post, put, patch, delete: deleteR };
+export const postStream = (
+  url: string,
+  body: object
+): Observable<Response> => {
+  // Extract Authorization header safely
+  const authHeader = axiosInstance.defaults.headers.common['Authorization'];
+  const cleanAuth: string | undefined = typeof authHeader === 'string'
+    ? authHeader
+    : undefined;
+
+  return from(
+    fetch(`${axiosInstance.defaults.baseURL}${url}`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'text/event-stream',
+        'Content-Type': 'application/json',
+        ...(cleanAuth && { 'Authorization': cleanAuth })
+      },
+      body: JSON.stringify(body)
+    })
+  );
+};
+
+export default { setAuthToken, get, post, put, patch, delete: deleteR, postStream };

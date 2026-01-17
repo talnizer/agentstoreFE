@@ -93,7 +93,7 @@ export default function ListPosts(props) {
         <div>
             {drafts && drafts.length > 0 && <h3 className='text-center'>Posts</h3>
             }
-            <div className='pt-3 row justify-content-center'>
+            <div className='row justify-content-center'>
                 <div className='col-11'>
 
                     {user &&
@@ -109,7 +109,7 @@ export default function ListPosts(props) {
 
                     {/* {user && (!drafts || drafts.length <= 0) && <span>No Post Yet</span>} */}
                     {drafts && drafts.length > 0 &&
-                        <div className='card shadow m-3 p-2 bg-light'>
+                        <div className='card shadow p-2 bg-light'>
                             {drafts.map((draft, draftIndex) => (
                                 ////other heads
                                 <div className='bg-white rounded p-2 m-1' key={draftIndex}>

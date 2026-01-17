@@ -22,6 +22,7 @@ import Register from "../Components/SocialPosting/Register";
 import Login from "../Components/user/Login";
 import SocialConnect from "../Components/SocialPosting/SocialShare";
 import Home from "../Components/SocialPosting/Home";
+import { ChatComponent } from "../Components/ChatBot/ChatComponent";
 
 // const Home = React.lazy(() => import("../pages/Home"));
 // const Team = React.lazy(() => import("../pages/Team"));
@@ -105,14 +106,21 @@ const routes = [
     element: <ForgotPassword />,
   },
 
+
+  // AI Pages Start //
+  {
+    path: PathConstants.CHAT_HOME,
+    element: (
+      <ChatComponent />
+    ),
+  },
+  // AI Pages End //
+
   { path: PathConstants.ABOUT, element: <About /> },
   { path: PathConstants.ABOUT_RESTAURANT, element: <AboutRestaurant /> },
   { path: PathConstants.CONTACT, element: <ContactUs /> },
   { path: PathConstants.PAGE403, element: <Page403 /> },
   { path: PathConstants.PAGE404, element: <Page404 /> },
-
-  // AI Pages Start //
-  //   // AI Pages End
 
 ];
 export default routes;

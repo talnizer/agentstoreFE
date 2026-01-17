@@ -36,7 +36,6 @@ const PathConstants = {
   DASHBOARD_EMPLOYEES: "/dashboard/employees",
   //Operator
   STORE_PROFILE: "/store/profile",
-  STORE_MENU: "/menu",
 
   //User
   FEEDBACK: "/feedback/menu",
@@ -48,7 +47,9 @@ const PathConstants = {
 
   //AI
   AI_MENU_ANALYTICS_PAGE: "/ai/menu/analytics",
-  GOSSIP: "/ai/gossip"
+  GOSSIP: "/ai/gossip",
+
+  CHAT_HOME: "/chatbot",
 };
 
 export default PathConstants;

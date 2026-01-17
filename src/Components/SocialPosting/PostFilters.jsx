@@ -73,9 +73,13 @@ export default function PostFilters(props) {
     return (
         <div>
             {/* <h2>Dashboard</h2> */}
-            <div className='bg-light text-center mb-5 sticky-top'>
+            <div className='bg-light text-center mb-2 sticky-top'>
                 <Form onSubmit={(e) => { e.preventDefault(); gen(); }} className='pt-3 container'>
                     <h3>Social Post Agent</h3>
+                    {!user &&
+                        <div className='text-left mb-4'><small className='text-danger'>*Some Fields are disabled. Login to enable them.</small></div>
+                    }
+
                     <Row className="justify-content-center">
                         <Col md={11}>
 
@@ -299,7 +303,7 @@ export default function PostFilters(props) {
                             <Form.Group className="mb-3" controlId="instructionsText">
                                 <Form.Control
                                     as="textarea"
-                                    rows={4}
+                                    rows={2}
                                     className="form-control-lg"
                                     name="instructions"
                                     placeholder="Write some additional instructions (optional)"
@@ -316,7 +320,7 @@ export default function PostFilters(props) {
                             <div className="text-center mb-2">
                                 <Button
                                     variant="dark"
-                                    size="lg"
+                                    size="md"
                                     type="submit"
                                     disabled={generatingPosts}
                                     className="px-5"
@@ -331,9 +335,6 @@ export default function PostFilters(props) {
                                     )}
                                 </Button>
                             </div>
-                            {!user &&
-                                <div className='text-left mb-4'><small className='text-danger'>*Some Fields are disabled. Login to enable them.</small></div>
-                            }
                         </Col>
                     </Row>
                 </Form>
